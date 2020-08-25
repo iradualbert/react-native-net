@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function Item(props) {
     const {item, index, handleDelete} = props;
@@ -8,7 +9,7 @@ export default function Item(props) {
              <Text
                style={styles.text}
                key={item.id}>{`${index + 1}  -  ${item.name}`}</Text>
-             <TouchableOpacity onPress={() => handleDelete(item.id)} ><Text style={styles.button}>X</Text></TouchableOpacity>
+             <TouchableOpacity onPress={() => handleDelete(item.id)} ><MaterialIcons name="delete" style={styles.button} /></TouchableOpacity>
         </View>
     )
 }
@@ -39,6 +40,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         backgroundColor: "red",
         padding: 5,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderStyle: "dashed",
+        borderColor: "black",
         color: "white",
     }
 })
